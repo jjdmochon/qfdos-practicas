@@ -86,7 +86,7 @@ el disco local, sincronizando el código.
   una dirección de red: ábrela en el móvil conectado al mismo Wi-Fi para probar
   en el dispositivo real.
 - `dev.ps1 -Build` — comprueba tipos y compila.
-- `dev.ps1 -Pages` — compila con base `/practicas/` y deja `docs/` listo para
+- `dev.ps1 -Pages` — compila con base `/qfdos-practicas/` y deja `docs/` listo para
   GitHub Pages (con `.nojekyll` y `404.html`).
 - `dev.ps1 -Back` — devuelve a Drive los cambios hechos en la copia local.
 
@@ -107,7 +107,7 @@ Copia `.env.example` a `.env.local`:
 2. `git add docs && git commit -m "Publica build" && git push`
 3. En GitHub: *Settings* → *Pages* → *Source*: `main` / `docs`
 
-Queda en `https://jjdmochon.github.io/practicas/`. Si cambias el nombre del
+Queda en `https://jjdmochon.github.io/qfdos-practicas/`. Si cambias el nombre del
 repositorio, actualiza `PAGES_BASE` en `dev.ps1`: con una base equivocada la
 página sale en blanco sin ningún error a la vista.
 

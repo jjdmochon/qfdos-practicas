@@ -110,7 +110,7 @@ if ($Pages) {
     # GitHub Pages sirve el sitio bajo /<repositorio>/, no en la raiz del
     # dominio. Sin esta base, el HTML pide sus recursos a la raiz y Pages
     # responde 404: la pagina sale en blanco sin ningun error a la vista.
-    $env:PAGES_BASE = '/practicas/'
+    $env:PAGES_BASE = '/qfdos-practicas/'
 
     Write-Host 'Comprobando tipos...' -ForegroundColor Cyan
     node 'node_modules\typescript\lib\tsc.js' --noEmit -p tsconfig.app.json
