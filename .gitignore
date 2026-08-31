@@ -1,0 +1,23 @@
+# Dependencias y compilados
+node_modules
+dist
+dist-ssr
+*.local
+
+# Registros
+*.log
+npm-debug.log*
+
+# Entorno y secretos
+.env.local
+.env.*.local
+client_secret_*.json
+
+# Sistema y editores
+desktop.ini
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea
+.claude

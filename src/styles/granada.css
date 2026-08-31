@@ -1,0 +1,499 @@
+/* ==========================================================================
+   Identidad «Granada» — Prácticas de Química Farmacéutica II v4
+   Facultad de Farmacia · Universidad de Granada
+
+   Se carga DESPUÉS de index.css y App.css: reescribe los tokens de la marca
+   QFDOS (navy/teal/menta) por la paleta de la ciudad, sin tocar ni una línea
+   del sistema heredado. Así los componentes del módulo siguen funcionando
+   tal cual y cambian de piel por completo.
+
+   Color   Granate de la granada del escudo · Oro nazarí de la Alhambra ·
+           Azulejo de alicatado · Verde de la Vega · Blanco de Sierra Nevada
+   Letra   Cormorant Garamond (rótulos) · Montserrat (interfaz) · Roboto Mono
+   ========================================================================== */
+
+:root {
+  /* --- Marca: granate de la granada --- */
+  --primary: #7C1C2C;
+  --primary-dark: #4E0F1C;
+  --primary-light: #B33A4B;
+  --primary-bg: rgba(124, 28, 44, 0.06);
+
+  /* --- Azulejo: alicatado de los zócalos nazaríes --- */
+  --secondary: #14607F;
+  --secondary-dark: #0E4A63;
+  --secondary-light: #2E86A8;
+  --secondary-bg: rgba(20, 96, 127, 0.09);
+
+  /* --- Oro nazarí: el único acento brillante (yeserías y artesonados) --- */
+  --tertiary: #C08A2E;
+  --tertiary-light: #E4BC6B;
+  --tertiary-dark: #96691E;
+  --tertiary-bg: rgba(192, 138, 46, 0.14);
+
+  --navy-ink: var(--primary);
+  --teal-ink: var(--secondary-dark);
+
+  /* --- Superficies: cal del Albaicín, con un punto cálido --- */
+  --neutral-bg: #faf7f4;
+  --surface: #ffffff;
+  --surface-raised: #f5efe9;
+  --surface-alt: #efe5dd;
+  --glass-bg: rgba(255, 255, 255, 0.84);
+  --glass-border: rgba(255, 255, 255, 0.7);
+  --mol-canvas-bg: #ffffff;
+
+  --text-main: #1a1013;
+  --text-title: #5E1220;
+  --text-muted: #6b5257;
+  --text-light: #8a7176;
+
+  --border-color: rgba(124, 28, 44, 0.14);
+  --border-strong: rgba(124, 28, 44, 0.26);
+  --border-focus: #C08A2E;
+
+  --accent-emerald: #4E6B3F;   /* verde de la Vega */
+  --accent-amber: #C08A2E;
+  --accent-red: #b91c1c;
+  --accent-blue: #14607F;
+  --accent-purple: #6d3f6a;
+
+  --shadow-sm: 0 2px 4px -1px rgba(78, 15, 28, 0.07), 0 1px 3px rgba(78, 15, 28, 0.05);
+  --shadow-md: 0 8px 12px -3px rgba(78, 15, 28, 0.10), 0 2px 6px -1px rgba(78, 15, 28, 0.06);
+  --shadow-lg: 0 15px 20px -5px rgba(78, 15, 28, 0.14), 0 8px 8px -5px rgba(78, 15, 28, 0.08);
+  --shadow-hover: 0 15px 20px -5px rgba(78, 15, 28, 0.16), 0 8px 8px -5px rgba(192, 138, 46, 0.10);
+  --shadow-glass: 0 8px 32px rgba(78, 15, 28, 0.12);
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-primary: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Roboto Mono', 'Fira Code', Consolas, monospace;
+
+  /* --- Tokens propios de esta identidad --- */
+  --granate: #7C1C2C;
+  --granate-hondo: #4E0F1C;
+  --oro: #C08A2E;
+  --oro-claro: #E4BC6B;
+  --azulejo: #14607F;
+  --vega: #4E6B3F;
+  --nieve: #eaf1f7;
+
+  /* Altura que reserva la barra inferior en móvil (0 en escritorio) */
+  --barra-inferior: 0px;
+}
+
+/* --- Modo oscuro: noche del Albaicín (berenjena, nunca gris) --- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --neutral-bg: #150c10;
+    --surface: #21151a;
+    --surface-raised: #2c1d24;
+    --surface-alt: #382530;
+    --glass-bg: rgba(33, 21, 26, 0.9);
+    --glass-border: rgba(192, 138, 46, 0.18);
+    --mol-canvas-bg: #241820;
+
+    --primary-light: #e08496;
+    --navy-ink: #f0a8b4;
+    --teal-ink: #7fc7e0;
+    --tertiary: #E4BC6B;
+    --tertiary-light: #F2D79E;
+
+    --text-main: #f6efe9;
+    --text-title: #f4ddc2;
+    --text-muted: #bda6a6;
+    --text-light: #d9c8c8;
+
+    --border-color: rgba(192, 138, 46, 0.18);
+    --border-strong: rgba(192, 138, 46, 0.34);
+    --primary-bg: rgba(179, 58, 75, 0.16);
+    --secondary-bg: rgba(46, 134, 168, 0.18);
+    --tertiary-bg: rgba(228, 188, 107, 0.16);
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.6);
+    --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.7);
+    --shadow-hover: 0 18px 36px rgba(192, 138, 46, 0.2);
+    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.6);
+  }
+}
+
+:root[data-theme='dark'] {
+  --neutral-bg: #150c10;
+  --surface: #21151a;
+  --surface-raised: #2c1d24;
+  --surface-alt: #382530;
+  --glass-bg: rgba(33, 21, 26, 0.9);
+  --glass-border: rgba(192, 138, 46, 0.18);
+  --mol-canvas-bg: #241820;
+
+  --primary-light: #e08496;
+  --navy-ink: #f0a8b4;
+  --teal-ink: #7fc7e0;
+  --tertiary: #E4BC6B;
+  --tertiary-light: #F2D79E;
+
+  --text-main: #f6efe9;
+  --text-title: #f4ddc2;
+  --text-muted: #bda6a6;
+  --text-light: #d9c8c8;
+
+  --border-color: rgba(192, 138, 46, 0.18);
+  --border-strong: rgba(192, 138, 46, 0.34);
+  --primary-bg: rgba(179, 58, 75, 0.16);
+  --secondary-bg: rgba(46, 134, 168, 0.18);
+  --tertiary-bg: rgba(228, 188, 107, 0.16);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.7);
+  --shadow-hover: 0 18px 36px rgba(192, 138, 46, 0.2);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+/* ==========================================================================
+   Sebka: la celosía romboidal nazarí, como textura de fondo
+   ========================================================================== */
+.gr-sebka::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.14;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='104' viewBox='0 0 60 104'%3E%3Cg fill='none' stroke='white' stroke-width='1.4'%3E%3Cpath d='M30 2 L58 18 L58 50 L30 66 L2 50 L2 18 Z'/%3E%3Cpath d='M30 18 L44 26 L44 42 L30 50 L16 42 L16 26 Z'/%3E%3Cpath d='M0 70 L14 78 L14 94 L0 102'/%3E%3Cpath d='M60 70 L46 78 L46 94 L60 102'/%3E%3Cpath d='M30 66 L30 104'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 60px 104px;
+}
+
+/* ==========================================================================
+   Cabecera
+   ========================================================================== */
+.gr-cabecera {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: linear-gradient(135deg, var(--granate) 0%, var(--granate-hondo) 100%);
+  color: #fff7f2;
+  border-bottom: 2px solid var(--oro);
+  box-shadow: 0 8px 24px -14px rgba(0, 0, 0, 0.8);
+  padding-top: env(safe-area-inset-top);
+  overflow: hidden;
+}
+
+.gr-cabecera-fila {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.gr-marca { display: flex; align-items: center; gap: 0.6rem; min-width: 0; }
+.gr-marca img { width: 34px; height: 34px; border-radius: 9px; flex-shrink: 0; }
+
+.gr-titulo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gr-subtitulo {
+  font-size: 0.66rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--oro-claro);
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gr-acciones { margin-left: auto; display: flex; align-items: center; gap: 0.4rem; }
+
+.gr-boton-icono {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff7f2;
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+.gr-boton-icono:hover { background: rgba(255, 255, 255, 0.2); border-color: var(--oro); }
+
+/* Lema nazarí, como filete decorativo bajo la cabecera */
+.gr-lema {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  color: rgba(228, 188, 107, 0.85);
+  padding: 0 1rem 0.35rem;
+}
+
+/* ==========================================================================
+   Pestañas: carrusel horizontal en móvil, fila completa en escritorio
+   ========================================================================== */
+.gr-tira {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.gr-pestanas {
+  display: flex;
+  gap: 0.45rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 0.55rem 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.gr-pestanas::-webkit-scrollbar { display: none; }
+
+.gr-pestana {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  background: var(--surface);
+  color: var(--text-main);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+.gr-pestana:hover { border-color: var(--oro); }
+.gr-pestana[aria-selected='true'] {
+  background: var(--granate);
+  border-color: var(--granate-hondo);
+  color: #fff7f2;
+  box-shadow: inset 0 -2px 0 var(--oro);
+}
+.gr-pestana[data-bloqueada='true'] { opacity: 0.55; }
+
+/* ==========================================================================
+   Portada
+   ========================================================================== */
+.gr-portada {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, #7C1C2C 0%, #4E0F1C 55%, #2b1a2c 100%);
+  color: #fff7f2;
+  padding: 1.6rem 1.25rem 0;
+  border: 1px solid rgba(192, 138, 46, 0.35);
+}
+
+.gr-portada-cuerpo { position: relative; z-index: 2; }
+
+.gr-portada h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 6.2vw, 2.6rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0.35rem 0 0.5rem;
+  letter-spacing: 0.01em;
+}
+
+.gr-portada p { color: rgba(255, 247, 242, 0.9); font-size: 0.9rem; line-height: 1.55; }
+
+.gr-etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(192, 138, 46, 0.22);
+  border: 1px solid rgba(228, 188, 107, 0.5);
+  color: var(--oro-claro);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.gr-datos { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.9rem; }
+
+.gr-dato {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #fff7f2;
+}
+
+/* Perfil de Sierra Nevada al pie de la portada */
+.gr-sierra { position: relative; z-index: 2; display: block; width: 100%; height: 52px; margin-top: 1rem; }
+
+/* ==========================================================================
+   Barra inferior de navegación (móvil)
+   ========================================================================== */
+.gr-barra {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 45;
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  border-top: 1px solid var(--border-color);
+  box-shadow: 0 -6px 20px -12px rgba(78, 15, 28, 0.6);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.gr-barra-fila { display: grid; grid-template-columns: repeat(5, 1fr); }
+
+.gr-barra button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-height: 58px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.6rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 6px 2px;
+}
+.gr-barra button[aria-selected='true'] { color: var(--granate); }
+:root[data-theme='dark'] .gr-barra button[aria-selected='true'] { color: var(--oro-claro); }
+.gr-barra button[aria-selected='true']::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 26px;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: var(--oro);
+}
+
+/* ==========================================================================
+   Estructura general
+   ========================================================================== */
+.gr-app { min-height: 100dvh; display: flex; flex-direction: column; background: var(--neutral-bg); }
+
+.gr-contenido {
+  flex: 1;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem 1rem calc(1.5rem + var(--barra-inferior));
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.gr-pie {
+  border-top: 1px solid var(--border-color);
+  background: var(--surface-raised);
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  text-align: center;
+  padding: 1rem 1rem calc(1rem + var(--barra-inferior));
+  line-height: 1.7;
+}
+
+.gr-aviso {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-lg);
+  background: var(--tertiary-bg);
+  border: 1px solid var(--border-strong);
+  color: var(--text-main);
+  font-size: 0.84rem;
+}
+
+/* ==========================================================================
+   Adaptación a móvil
+   Los componentes heredados llevan estilos en línea; en las reglas que deben
+   ganarles se usa !important de forma deliberada y acotada a pantalla pequeña.
+   ========================================================================== */
+@media (max-width: 780px) {
+  :root { --barra-inferior: 66px; }
+
+  .gr-barra { display: block; }
+
+  .qfdos-card { padding: 1rem !important; border-radius: 14px !important; }
+  .qfdos-card:hover { transform: none; box-shadow: var(--shadow-sm); }
+
+  /* Un elemento flexible no baja de su «tamaño mínimo automático» (el ancho de
+     su contenido), así que una tarjeta pensada para el aula se queda en 486 px
+     y se sale de la pantalla del móvil, cortada por la derecha. Anulando ese
+     mínimo, la columna vuelve a caber. Las filas, además, se envuelven —pero
+     solo las filas: poner flex-wrap en un contenedor en columna lo parte en
+     varias columnas y reproduce el problema que se quería corregir. */
+  .gr-contenido * { min-width: 0 !important; }
+  .gr-contenido > * { max-width: 100% !important; }
+  .gr-contenido [style*='display: flex']:not([style*='column']) { flex-wrap: wrap; }
+
+  /* Rejillas de dos y tres columnas: apiladas */
+  [style*='grid-template-columns: minmax(0'],
+  [style*='grid-template-columns: 1fr 1fr'],
+  [style*='grid-template-columns: repeat(3'],
+  [style*='grid-template-columns: 160px'] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Tablas anchas: se deslizan dentro de su caja, no rompen la página */
+  table { display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* Objetivo táctil mínimo */
+  button, .btn, select { min-height: 44px; }
+
+  /* Por debajo de 16 px, iOS hace zoom al enfocar un campo */
+  input, select, textarea { font-size: 16px !important; }
+
+  h1 { font-size: clamp(1.5rem, 6vw, 2rem) !important; }
+  h2 { font-size: clamp(1.2rem, 5vw, 1.6rem) !important; }
+}
+
+/* Sin :hover pegado en pantallas táctiles */
+@media (hover: none) {
+  .qfdos-card:hover { transform: none; }
+  .gr-pestana:hover { border-color: var(--border-color); }
+}
+
+/* La app instalada no debe rebotar como una página web */
+@media (display-mode: standalone) {
+  body { overscroll-behavior-y: contain; }
+}
+
+@media print {
+  .gr-cabecera, .gr-tira, .gr-barra, .gr-pie, .no-print { display: none !important; }
+  .gr-contenido { padding: 0; }
+}
