@@ -627,7 +627,7 @@ export const PracticasYieldCalculator: React.FC = () => {
               <div>
                 2. <strong>Moles teóricos de producto:</strong> {calculationData.limitingItem?.reagent.name} (limitante con {calculationData.limitingItem?.normalizedRatio.toFixed(4)} mol eq.) rinde un máximo de <strong>{(calculationData.theoreticalProductMoles * 1000).toFixed(2)} mmol</strong> de {currentPreset.product.name}.
               </div>
-              <div style={{ padding: '8px 12px', background: 'rgba(124,28,44,0.06)', borderRadius: '6px', borderLeft: '3px solid var(--navy)', fontWeight: 700, color: 'var(--navy-ink)' }}>
+              <div style={{ padding: '8px 12px', background: 'rgba(91,43,138,0.06)', borderRadius: '6px', borderLeft: '3px solid var(--navy)', fontWeight: 700, color: 'var(--navy-ink)' }}>
                 Masa Teórica Máxima = {(calculationData.theoreticalProductMoles * 1000).toFixed(2)} mmol × {currentPreset.product.mw} g/mol = {calculationData.theoreticalProductMassG.toFixed(3)} g
               </div>
             </div>

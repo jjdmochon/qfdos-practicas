@@ -6,15 +6,27 @@ import { MiSemanaPracticas } from '../MiSemanaPracticas';
 /**
  * Portada del cuaderno.
  *
- * Los elementos de Granada no son adorno suelto: la celosía sebka de la
- * Alhambra teje el fondo, el perfil nevado de Sierra Nevada cierra la caja y
- * la paleta granate-oro viene de la granada del escudo de la ciudad y de la
+ * Los elementos no son adorno suelto (ver DESIGN.md): la celosía sebka teje el
+ * fondo, la copa de Higía —el símbolo de la profesión farmacéutica— queda de
+ * filigrana, el perfil nevado de Sierra Nevada cierra la caja, y el color es
+ * el morado académico de la Facultad de Farmacia sobre el granate de la
  * Universidad. Debajo, lo primero que necesita quien va a entrar al
  * laboratorio: si ha firmado las normas y qué semana le toca.
  */
 export const Portada: React.FC<{ firmado: boolean; onIr: (s: Seccion) => void }> = ({ firmado, onIr }) => (
   <>
     <section className="gr-portada gr-sebka">
+      {/* Copa de Higía: copa y serpiente, el emblema de la profesión */}
+      <svg className="gr-higia" viewBox="0 0 120 160" aria-hidden="true">
+        <g fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M32 52 h56 a28 28 0 0 1 -28 40 a28 28 0 0 1 -28 -40 z" />
+          <path d="M60 92 v34" />
+          <path d="M38 132 h44" />
+          <path d="M92 24 c-16 0 -24 10 -24 20 c0 12 16 14 16 24 c0 8 -8 12 -14 10" />
+          <circle cx="96" cy="22" r="4" fill="currentColor" stroke="none" />
+        </g>
+      </svg>
+
       <div className="gr-portada-cuerpo">
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center' }}>
           <span className="gr-etiqueta">

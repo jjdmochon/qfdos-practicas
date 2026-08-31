@@ -166,7 +166,7 @@ export const PracticasExamSimulator: React.FC = () => {
 
         {/* Status bar */}
         <div style={{
-          background: 'linear-gradient(135deg, rgba(124,28,44,0.06) 0%, rgba(20,96,127,0.04) 100%)',
+          background: 'linear-gradient(135deg, rgba(91,43,138,0.06) 0%, rgba(20,96,127,0.04) 100%)',
           borderRadius: '8px',
           padding: '0.75rem 1.25rem',
           borderLeft: '4px solid var(--teal)',
@@ -230,7 +230,7 @@ export const PracticasExamSimulator: React.FC = () => {
             {/* Scenario */}
             {currentQ.scenario && (
               <div style={{
-                background: 'rgba(124,28,44,0.04)',
+                background: 'rgba(91,43,138,0.04)',
                 borderLeft: '4px solid var(--navy)',
                 padding: '0.85rem 1.1rem',
                 borderRadius: '8px',
@@ -346,7 +346,7 @@ export const PracticasExamSimulator: React.FC = () => {
                       key={oIdx}
                       onClick={() => handleSelectOption(oIdx)}
                       style={{
-                        background: isSelected ? 'rgba(124,28,44,0.08)' : 'var(--surface-muted)',
+                        background: isSelected ? 'rgba(91,43,138,0.08)' : 'var(--surface-muted)',
                         border: `1.5px solid ${isSelected ? 'var(--navy)' : 'var(--border-color)'}`,
                         borderRadius: '8px',
                         padding: '0.85rem 1.1rem',

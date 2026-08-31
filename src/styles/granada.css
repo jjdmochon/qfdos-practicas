@@ -1,29 +1,32 @@
 /* ==========================================================================
-   Identidad «Granada» — Prácticas de Química Farmacéutica II v4
-   Facultad de Farmacia · Universidad de Granada
+   Identidad de la Facultad de Farmacia (UGR)
+   Prácticas de Química Farmacéutica II · v4
 
-   Se carga DESPUÉS de index.css y App.css: reescribe los tokens de la marca
-   QFDOS (navy/teal/menta) por la paleta de la ciudad, sin tocar ni una línea
-   del sistema heredado. Así los componentes del módulo siguen funcionando
-   tal cual y cambian de piel por completo.
+   TRADUCCIÓN LITERAL DE DESIGN.md v4.0, que es el archivo maestro. Los valores
+   de :root no se ajustan «a ojo»: si un color no encaja, se corrige primero en
+   DESIGN.md y después aquí.
 
-   Color   Granate de la granada del escudo · Oro nazarí de la Alhambra ·
-           Azulejo de alicatado · Verde de la Vega · Blanco de Sierra Nevada
+   Se carga DESPUÉS de index.css y App.css y reescribe los tokens heredados de
+   QFDOS (navy/teal/menta) sin tocar una línea del sistema anterior: los
+   componentes del módulo siguen funcionando igual y cambian de piel.
+
+   Color   Morado académico de Farmacia (ancla) · Granate de la Universidad de
+           Granada · Oro nazarí (único acento) · Verde de la Vega · Azulejo
    Letra   Cormorant Garamond (rótulos) · Montserrat (interfaz) · Roboto Mono
    ========================================================================== */
 
 :root {
-  /* --- Marca: granate de la granada --- */
-  --primary: #7C1C2C;
-  --primary-dark: #4E0F1C;
-  --primary-light: #B33A4B;
-  --primary-bg: rgba(124, 28, 44, 0.06);
+  /* --- Ancla: morado académico de la Facultad de Farmacia --- */
+  --primary: #5B2B8A;
+  --primary-dark: #3B1A5E;
+  --primary-light: #8257B8;
+  --primary-bg: rgba(91, 43, 138, 0.06);
 
-  /* --- Azulejo: alicatado de los zócalos nazaríes --- */
-  --secondary: #14607F;
-  --secondary-dark: #0E4A63;
-  --secondary-light: #2E86A8;
-  --secondary-bg: rgba(20, 96, 127, 0.09);
+  /* --- Institucional: granate de la Universidad de Granada --- */
+  --secondary: #8C1D2E;
+  --secondary-dark: #6A1322;
+  --secondary-light: #B3384A;
+  --secondary-bg: rgba(140, 29, 46, 0.08);
 
   /* --- Oro nazarí: el único acento brillante (yeserías y artesonados) --- */
   --tertiary: #C08A2E;
@@ -34,43 +37,45 @@
   --navy-ink: var(--primary);
   --teal-ink: var(--secondary-dark);
 
-  /* --- Superficies: cal del Albaicín, con un punto cálido --- */
-  --neutral-bg: #faf7f4;
+  /* --- Superficies: cal del Albaicín bajo un velo lila --- */
+  --neutral-bg: #faf7fb;
   --surface: #ffffff;
-  --surface-raised: #f5efe9;
-  --surface-alt: #efe5dd;
+  --surface-raised: #f4eff8;
+  --surface-alt: #eae1f1;
   --glass-bg: rgba(255, 255, 255, 0.84);
   --glass-border: rgba(255, 255, 255, 0.7);
   --mol-canvas-bg: #ffffff;
 
-  --text-main: #1a1013;
-  --text-title: #5E1220;
-  --text-muted: #6b5257;
-  --text-light: #8a7176;
+  --text-main: #17111c;
+  --text-title: #3B1A5E;
+  --text-muted: #5f5468;
+  --text-light: #7d7089;
 
-  --border-color: rgba(124, 28, 44, 0.14);
-  --border-strong: rgba(124, 28, 44, 0.26);
+  --border-color: rgba(91, 43, 138, 0.15);
+  --border-strong: rgba(91, 43, 138, 0.28);
   --border-focus: #C08A2E;
 
   --accent-emerald: #4E6B3F;   /* verde de la Vega */
   --accent-amber: #C08A2E;
   --accent-red: #b91c1c;
-  --accent-blue: #14607F;
-  --accent-purple: #6d3f6a;
+  --accent-blue: #14607F;      /* azulejo de alicatado */
+  --accent-purple: #8257B8;
 
-  --shadow-sm: 0 2px 4px -1px rgba(78, 15, 28, 0.07), 0 1px 3px rgba(78, 15, 28, 0.05);
-  --shadow-md: 0 8px 12px -3px rgba(78, 15, 28, 0.10), 0 2px 6px -1px rgba(78, 15, 28, 0.06);
-  --shadow-lg: 0 15px 20px -5px rgba(78, 15, 28, 0.14), 0 8px 8px -5px rgba(78, 15, 28, 0.08);
-  --shadow-hover: 0 15px 20px -5px rgba(78, 15, 28, 0.16), 0 8px 8px -5px rgba(192, 138, 46, 0.10);
-  --shadow-glass: 0 8px 32px rgba(78, 15, 28, 0.12);
+  --shadow-sm: 0 2px 4px -1px rgba(59, 26, 94, 0.07), 0 1px 3px rgba(59, 26, 94, 0.05);
+  --shadow-md: 0 8px 12px -3px rgba(59, 26, 94, 0.10), 0 2px 6px -1px rgba(59, 26, 94, 0.06);
+  --shadow-lg: 0 15px 20px -5px rgba(59, 26, 94, 0.14), 0 8px 8px -5px rgba(59, 26, 94, 0.08);
+  --shadow-hover: 0 15px 20px -5px rgba(59, 26, 94, 0.16), 0 8px 8px -5px rgba(192, 138, 46, 0.10);
+  --shadow-glass: 0 8px 32px rgba(59, 26, 94, 0.12);
 
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-primary: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'Roboto Mono', 'Fira Code', Consolas, monospace;
 
   /* --- Tokens propios de esta identidad --- */
-  --granate: #7C1C2C;
-  --granate-hondo: #4E0F1C;
+  --morado: #5B2B8A;           /* Farmacia: color académico de la facultad */
+  --morado-hondo: #3B1A5E;
+  --granate: #8C1D2E;          /* Universidad de Granada */
+  --granate-hondo: #6A1322;
   --oro: #C08A2E;
   --oro-claro: #E4BC6B;
   --azulejo: #14607F;
@@ -81,32 +86,32 @@
   --barra-inferior: 0px;
 }
 
-/* --- Modo oscuro: noche del Albaicín (berenjena, nunca gris) --- */
+/* --- Modo oscuro: morado apagado, nunca gris --- */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --neutral-bg: #150c10;
-    --surface: #21151a;
-    --surface-raised: #2c1d24;
-    --surface-alt: #382530;
-    --glass-bg: rgba(33, 21, 26, 0.9);
+    --neutral-bg: #120c18;
+    --surface: #1d1526;
+    --surface-raised: #271c33;
+    --surface-alt: #33253f;
+    --glass-bg: rgba(29, 21, 38, 0.9);
     --glass-border: rgba(192, 138, 46, 0.18);
-    --mol-canvas-bg: #241820;
+    --mol-canvas-bg: #211829;
 
-    --primary-light: #e08496;
-    --navy-ink: #f0a8b4;
-    --teal-ink: #7fc7e0;
+    --primary-light: #b78ee6;
+    --navy-ink: #c9a9ee;
+    --teal-ink: #f0a8b4;
     --tertiary: #E4BC6B;
     --tertiary-light: #F2D79E;
 
-    --text-main: #f6efe9;
-    --text-title: #f4ddc2;
-    --text-muted: #bda6a6;
-    --text-light: #d9c8c8;
+    --text-main: #f4eff8;
+    --text-title: #e6d3f5;
+    --text-muted: #b3a3bf;
+    --text-light: #d2c6dc;
 
     --border-color: rgba(192, 138, 46, 0.18);
     --border-strong: rgba(192, 138, 46, 0.34);
-    --primary-bg: rgba(179, 58, 75, 0.16);
-    --secondary-bg: rgba(46, 134, 168, 0.18);
+    --primary-bg: rgba(130, 87, 184, 0.18);
+    --secondary-bg: rgba(179, 56, 74, 0.18);
     --tertiary-bg: rgba(228, 188, 107, 0.16);
 
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
@@ -118,29 +123,29 @@
 }
 
 :root[data-theme='dark'] {
-  --neutral-bg: #150c10;
-  --surface: #21151a;
-  --surface-raised: #2c1d24;
-  --surface-alt: #382530;
-  --glass-bg: rgba(33, 21, 26, 0.9);
+  --neutral-bg: #120c18;
+  --surface: #1d1526;
+  --surface-raised: #271c33;
+  --surface-alt: #33253f;
+  --glass-bg: rgba(29, 21, 38, 0.9);
   --glass-border: rgba(192, 138, 46, 0.18);
-  --mol-canvas-bg: #241820;
+  --mol-canvas-bg: #211829;
 
-  --primary-light: #e08496;
-  --navy-ink: #f0a8b4;
-  --teal-ink: #7fc7e0;
+  --primary-light: #b78ee6;
+  --navy-ink: #c9a9ee;
+  --teal-ink: #f0a8b4;
   --tertiary: #E4BC6B;
   --tertiary-light: #F2D79E;
 
-  --text-main: #f6efe9;
-  --text-title: #f4ddc2;
-  --text-muted: #bda6a6;
-  --text-light: #d9c8c8;
+  --text-main: #f4eff8;
+  --text-title: #e6d3f5;
+  --text-muted: #b3a3bf;
+  --text-light: #d2c6dc;
 
   --border-color: rgba(192, 138, 46, 0.18);
   --border-strong: rgba(192, 138, 46, 0.34);
-  --primary-bg: rgba(179, 58, 75, 0.16);
-  --secondary-bg: rgba(46, 134, 168, 0.18);
+  --primary-bg: rgba(130, 87, 184, 0.18);
+  --secondary-bg: rgba(179, 56, 74, 0.18);
   --tertiary-bg: rgba(228, 188, 107, 0.16);
 
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
@@ -170,7 +175,7 @@
   position: sticky;
   top: 0;
   z-index: 40;
-  background: linear-gradient(135deg, var(--granate) 0%, var(--granate-hondo) 100%);
+  background: linear-gradient(135deg, var(--morado) 0%, var(--morado-hondo) 100%);
   color: #fff7f2;
   border-bottom: 2px solid var(--oro);
   box-shadow: 0 8px 24px -14px rgba(0, 0, 0, 0.8);
@@ -233,7 +238,7 @@
 }
 .gr-boton-icono:hover { background: rgba(255, 255, 255, 0.2); border-color: var(--oro); }
 
-/* Lema nazarí, como filete decorativo bajo la cabecera */
+/* Filete bajo la cabecera: identifica la asignatura y el curso */
 .gr-lema {
   position: relative;
   z-index: 2;
@@ -290,8 +295,8 @@
 }
 .gr-pestana:hover { border-color: var(--oro); }
 .gr-pestana[aria-selected='true'] {
-  background: var(--granate);
-  border-color: var(--granate-hondo);
+  background: var(--morado);
+  border-color: var(--morado-hondo);
   color: #fff7f2;
   box-shadow: inset 0 -2px 0 var(--oro);
 }
@@ -304,7 +309,7 @@
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-xl);
-  background: linear-gradient(135deg, #7C1C2C 0%, #4E0F1C 55%, #2b1a2c 100%);
+  background: linear-gradient(135deg, #5B2B8A 0%, #3B1A5E 55%, #6A1322 100%);
   color: #fff7f2;
   padding: 1.6rem 1.25rem 0;
   border: 1px solid rgba(192, 138, 46, 0.35);
@@ -350,6 +355,23 @@
   color: #fff7f2;
 }
 
+/* Copa de Higía: filigrana en la esquina, nunca protagonista */
+.gr-higia {
+  position: absolute;
+  top: -6px;
+  right: -14px;
+  width: 190px;
+  height: 250px;
+  color: var(--oro-claro);
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media (max-width: 780px) {
+  .gr-higia { width: 130px; height: 170px; right: -22px; opacity: 0.09; }
+}
+
 /* Perfil de Sierra Nevada al pie de la portada */
 .gr-sierra { position: relative; z-index: 2; display: block; width: 100%; height: 52px; margin-top: 1rem; }
 
@@ -366,7 +388,7 @@
   background: var(--glass-bg);
   backdrop-filter: blur(14px);
   border-top: 1px solid var(--border-color);
-  box-shadow: 0 -6px 20px -12px rgba(78, 15, 28, 0.6);
+  box-shadow: 0 -6px 20px -12px rgba(59, 26, 94, 0.6);
   padding-bottom: env(safe-area-inset-bottom);
 }
 
@@ -388,7 +410,7 @@
   cursor: pointer;
   padding: 6px 2px;
 }
-.gr-barra button[aria-selected='true'] { color: var(--granate); }
+.gr-barra button[aria-selected='true'] { color: var(--morado); }
 :root[data-theme='dark'] .gr-barra button[aria-selected='true'] { color: var(--oro-claro); }
 .gr-barra button[aria-selected='true']::before {
   content: '';

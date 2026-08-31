@@ -115,7 +115,7 @@ export const PracticasSafetyRules: React.FC<PracticasSafetyRulesProps> = ({
       
       {/* Header Banner */}
       <div className="qfdos-card" style={{
-        background: 'linear-gradient(135deg, #4E0F1C 0%, #2b1a2c 50%, #7C1C2C 100%)',
+        background: 'linear-gradient(135deg, #3B1A5E 0%, #2b1a2c 50%, #6A1322 100%)',
         color: '#ffffff',
         padding: '2rem',
         borderRadius: '16px',
@@ -306,7 +306,7 @@ export const PracticasSafetyRules: React.FC<PracticasSafetyRulesProps> = ({
               style={{
                 width: `${(currentCheckedCount / totalRules) * 100}%`,
                 height: '100%',
-                background: allChecked ? 'linear-gradient(90deg, #10b981, #059669)' : 'linear-gradient(90deg, #C08A2E, #7C1C2C)',
+                background: allChecked ? 'linear-gradient(90deg, #10b981, #059669)' : 'linear-gradient(90deg, #C08A2E, #5B2B8A)',
                 transition: 'width 0.25s ease'
               }}
             />

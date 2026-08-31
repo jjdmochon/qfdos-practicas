@@ -281,7 +281,7 @@ export const PracticasSolutionsCalculator: React.FC = () => {
           </div>
 
           {/* Solid Result Box */}
-          <div className="qfdos-card" style={{ padding: '1.5rem', background: 'linear-gradient(135deg, rgba(124,28,44,0.04) 0%, rgba(20,96,127,0.04) 100%)', borderTop: '4px solid var(--navy)' }}>
+          <div className="qfdos-card" style={{ padding: '1.5rem', background: 'linear-gradient(135deg, rgba(91,43,138,0.04) 0%, rgba(20,96,127,0.04) 100%)', borderTop: '4px solid var(--navy)' }}>
             <h4 style={{ margin: '0 0 1rem 0', fontWeight: 800, fontSize: '1rem', color: 'var(--text-title)' }}>
               Resultado y Procedimiento de Laboratorio
             </h4>

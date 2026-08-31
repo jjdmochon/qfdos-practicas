@@ -32,7 +32,7 @@ export const Acceso: React.FC<{ onCerrar: () => void }> = ({ onCerrar }) => {
       onClick={onCerrar}
       style={{
         position: 'fixed', inset: 0, zIndex: 70,
-        background: 'rgba(21, 12, 16, 0.62)', backdropFilter: 'blur(4px)',
+        background: 'rgba(18, 12, 24, 0.62)', backdropFilter: 'blur(4px)',
         display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem'
       }}
     >

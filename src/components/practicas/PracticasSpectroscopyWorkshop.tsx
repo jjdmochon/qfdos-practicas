@@ -129,7 +129,7 @@ export const PracticasSpectroscopyWorkshop: React.FC = () => {
 
         {/* Compound Info Bar */}
         <div style={{
-          background: 'linear-gradient(135deg, rgba(124,28,44,0.05) 0%, rgba(20,96,127,0.04) 100%)',
+          background: 'linear-gradient(135deg, rgba(91,43,138,0.05) 0%, rgba(20,96,127,0.04) 100%)',
           borderRadius: '10px',
           padding: '1rem 1.25rem',
           borderLeft: '4px solid var(--navy)',
@@ -432,7 +432,7 @@ export const PracticasSpectroscopyWorkshop: React.FC = () => {
           </div>
 
           {/* Special Side-by-Side Comparison: DHPP vs Nifedipina */}
-          <div className="qfdos-card" style={{ padding: '1.5rem', background: 'linear-gradient(135deg, rgba(124,28,44,0.04) 0%, rgba(20,96,127,0.04) 100%)' }}>
+          <div className="qfdos-card" style={{ padding: '1.5rem', background: 'linear-gradient(135deg, rgba(91,43,138,0.04) 0%, rgba(20,96,127,0.04) 100%)' }}>
             <h4 style={{ margin: '0 0 1rem 0', fontWeight: 800, fontSize: '1rem', color: 'var(--text-title)' }}>
               Comparativa Clave: DHPP vs Nifedipina en ¹H RMN
             </h4>

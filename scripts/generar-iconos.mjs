@@ -1,5 +1,6 @@
 /**
- * Genera los iconos PNG de la aplicacion (granada nazari) sin dependencias.
+ * Genera los iconos PNG de la aplicacion sin dependencias: la granada del
+ * escudo de la Universidad, en oro sobre el morado academico de Farmacia.
  *
  * iOS solo acepta PNG en apple-touch-icon: un SVG no basta para que el atajo
  * de la pantalla de inicio tenga icono propio. Se rasteriza aqui con campos de
@@ -15,8 +16,9 @@ import { fileURLToPath } from 'node:url';
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DESTINO = join(RAIZ, 'public', 'iconos');
 
-const GRANATE = [0x7c, 0x1c, 0x2c];
-const GRANATE_HONDO = [0x4e, 0x0f, 0x1c];
+// Morado academico de Farmacia sobre granate UGR (ver DESIGN.md v4.0)
+const MORADO = [0x5b, 0x2b, 0x8a];
+const MORADO_HONDO = [0x3b, 0x1a, 0x5e];
 const ORO = [0xd8, 0xa6, 0x4b];
 const ORO_CLARO = [0xf0, 0xd7, 0x9b];
 const HOJA = [0x4e, 0x6b, 0x3f];
@@ -40,7 +42,7 @@ function caja(x, y, cx, cy, ancho, alto, radio) {
  */
 function pintar(u, v, margen) {
   // Fondo: degradado diagonal granate
-  const fondo = mezcla(GRANATE, GRANATE_HONDO, Math.min(1, (u + v) / 2));
+  const fondo = mezcla(MORADO, MORADO_HONDO, Math.min(1, (u + v) / 2));
 
   // Coordenadas del motivo, centradas y escaladas segun el margen
   const x = (u - 0.5) / margen + 0.5;

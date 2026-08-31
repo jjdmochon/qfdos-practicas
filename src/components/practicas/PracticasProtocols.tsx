@@ -74,7 +74,7 @@ export const PracticasProtocols: React.FC = () => {
 
         {/* Current Step Overview Banner */}
         <div style={{
-          background: 'linear-gradient(135deg, rgba(124,28,44,0.06) 0%, rgba(20,96,127,0.04) 100%)',
+          background: 'linear-gradient(135deg, rgba(91,43,138,0.06) 0%, rgba(20,96,127,0.04) 100%)',
           borderRadius: '10px',
           padding: '1.2rem',
           borderLeft: '4px solid var(--navy)',
@@ -295,12 +295,12 @@ export const PracticasProtocols: React.FC = () => {
                   key={eIdx}
                   style={{
                     fontSize: '0.76rem',
-                    background: 'rgba(124,28,44,0.06)',
+                    background: 'rgba(91,43,138,0.06)',
                     color: 'var(--navy-ink)',
                     padding: '4px 9px',
                     borderRadius: '6px',
                     fontWeight: 600,
-                    border: '1px solid rgba(124,28,44,0.12)'
+                    border: '1px solid rgba(91,43,138,0.12)'
                   }}
                 >
                   ✓ {eq}

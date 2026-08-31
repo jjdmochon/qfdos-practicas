@@ -139,7 +139,7 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        <p className="gr-lema" aria-hidden="true">و لا غالب إلا الله · Solo Dios es vencedor</p>
+        <p className="gr-lema">Prácticas de laboratorio · Campus de Cartuja</p>
       </header>
 
       {/* Pestañas: en el móvil se deslizan; en escritorio caben casi todas */}
@@ -264,7 +264,7 @@ const App: React.FC = () => {
           onClick={() => setMenuAbierto(false)}
           style={{
             position: 'fixed', inset: 0, zIndex: 60,
-            background: 'rgba(21, 12, 16, 0.6)', backdropFilter: 'blur(3px)',
+            background: 'rgba(18, 12, 24, 0.6)', backdropFilter: 'blur(3px)',
             display: 'flex', alignItems: 'flex-end'
           }}
         >

@@ -42,20 +42,26 @@ semana de laboratorio al calendario del móvil en formato `.ics`.
 
 ## Identidad visual
 
-La piel de la aplicación es Granada, no un tema genérico:
+**[`DESIGN.md`](DESIGN.md) es el archivo maestro.** Define color, tipografía,
+formas y reglas de móvil; [`src/styles/granada.css`](src/styles/granada.css) es
+su traducción literal a tokens CSS. Si un color no encaja se corrige primero en
+`DESIGN.md`, nunca dentro de un componente.
 
-- **Granate** de la granada del escudo de la ciudad y de la Universidad, con
-  **oro nazarí** como único acento brillante, **azulejo** de alicatado y verde
-  de la Vega.
-- **Celosía sebka** de la Alhambra tejida en la cabecera y en la portada.
-- **Perfil de Sierra Nevada** cerrando la portada: el horizonte que se ve desde
-  la Facultad.
-- Rótulos en **Cormorant Garamond**, interfaz en **Montserrat** y datos en
+El color es el de la casa, no el de la asignatura:
+
+- **Morado académico de Farmacia** (`#5B2B8A`) como ancla: es el color de la
+  facultad y el de la muceta que se pondrán al graduarse.
+- **Granate de la Universidad de Granada** (`#8C1D2E`) acompañando, y **oro
+  nazarí** (`#C08A2E`) como único acento brillante. Verde de la Vega para lo
+  correcto, azulejo para lo neutro.
+- **Celosía sebka** de la Alhambra en cabecera y portada, **copa de Higía** de
+  filigrana y **perfil de Sierra Nevada** cerrando la portada.
+- Rótulos en **Cormorant Garamond**, interfaz en **Montserrat**, datos en
   **Roboto Mono**.
-- El icono de la app es una granada abierta en oro sobre granate.
+- El icono es la granada del escudo, en oro sobre el morado de la facultad.
 
-El fichero [`src/styles/granada.css`](src/styles/granada.css) reescribe los
-tokens heredados de QFDOS; los componentes no se tocaron para cambiar de piel.
+Los componentes heredados no se modificaron para cambiar de piel: `granada.css`
+se carga después del sistema anterior y reescribe sus tokens.
 
 ## Poner en marcha
 

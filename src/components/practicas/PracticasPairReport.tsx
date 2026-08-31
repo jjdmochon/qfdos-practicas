@@ -539,7 +539,7 @@ export const PracticasPairReport: React.FC = () => {
             flexWrap: 'wrap',
             gap: '1rem',
             padding: '0.75rem 1rem',
-            background: 'rgba(124,28,44,0.06)',
+            background: 'rgba(91,43,138,0.06)',
             borderRadius: '8px',
             borderLeft: '4px solid var(--navy)'
           }}>
@@ -1385,7 +1385,7 @@ export const PracticasPairReport: React.FC = () => {
               padding: '1.75rem',
               border: '2px solid var(--navy)',
               
-              boxShadow: '0 12px 32px rgba(124,28,44,0.12)'
+              boxShadow: '0 12px 32px rgba(91,43,138,0.12)'
             }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.25rem', borderBottom: '1.5px solid var(--border)', paddingBottom: '0.75rem' }}>
                 <div>
@@ -1464,7 +1464,7 @@ export const PracticasPairReport: React.FC = () => {
               </div>
 
               {/* Grading Input Form */}
-              <div style={{ display: 'grid', gridTemplateColumns: '160px minmax(0, 1fr)', gap: '1.25rem', alignItems: 'flex-start', background: 'rgba(124,28,44,0.04)', padding: '1.25rem', borderRadius: '8px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '160px minmax(0, 1fr)', gap: '1.25rem', alignItems: 'flex-start', background: 'rgba(91,43,138,0.04)', padding: '1.25rem', borderRadius: '8px' }}>
                 <div>
                   <label className="label-text" style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--navy-ink)' }}>
                     Calificación (/10) *
