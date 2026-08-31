@@ -295,6 +295,7 @@
   background: var(--glass-bg);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-color);
+  width: 100%;
 }
 
 .gr-pestanas {
@@ -303,12 +304,25 @@
   overflow-x: auto;
   scroll-snap-type: x proximity;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  padding: 0.55rem 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(192, 138, 46, 0.4) transparent;
+  padding: 0.55rem 1rem 0.65rem;
   max-width: 1280px;
   margin: 0 auto;
 }
-.gr-pestanas::-webkit-scrollbar { display: none; }
+.gr-pestanas::-webkit-scrollbar {
+  height: 4px;
+}
+.gr-pestanas::-webkit-scrollbar-track {
+  background: transparent;
+}
+.gr-pestanas::-webkit-scrollbar-thumb {
+  background: rgba(192, 138, 46, 0.35);
+  border-radius: 4px;
+}
+.gr-pestanas::-webkit-scrollbar-thumb:hover {
+  background: var(--oro);
+}
 
 .gr-pestana {
   scroll-snap-align: start;
