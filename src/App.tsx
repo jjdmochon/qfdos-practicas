@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
-  Activity, Calculator, CheckCircle2, ClipboardCheck, Droplets,
+  Activity, Calculator, CheckCircle2, ChevronDown, ClipboardCheck, Droplets,
   GraduationCap, Grid3x3, Layers, Lock, LogOut, Moon, Settings, ShieldAlert,
   Sun, Users, X
 } from 'lucide-react';
@@ -63,12 +63,25 @@ function seccionInicial(firmado: boolean): Seccion {
 
 const App: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
-  const { user, isAuthenticated, logout } = useAuth();
+  const { user, isAuthenticated, isProfesor, isInstitucional, logout } = useAuth();
 
   const [firmado, setFirmado] = useState<boolean>(() => !!localStorage.getItem(CLAVE_SEGURIDAD));
   const [seccion, setSeccion] = useState<Seccion>(() => seccionInicial(!!localStorage.getItem(CLAVE_SEGURIDAD)));
   const [menuAbierto, setMenuAbierto] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [avisoBloqueo, setAvisoBloqueo] = useState(false);
+  const userMenuRef = useRef<HTMLDivElement>(null);
+
+  // Cerrar menú de usuario al hacer clic fuera
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(e.target as Node)) {
+        setUserMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   // Al cambiar de apartado se vuelve arriba: en el móvil, si no, se aterriza a
   // media página y parece que no ha pasado nada.
@@ -127,14 +140,91 @@ const App: React.FC = () => {
               {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
 
-            <button
-              className="gr-boton-icono"
-              onClick={logout}
-              aria-label={`Salir de la cuenta de ${user?.name ?? ''}`}
-              title={`${user?.name ?? ''} · Salir`}
-            >
-              <LogOut size={18} />
-            </button>
+            {/* User chip with dropdown */}
+            <div ref={userMenuRef} style={{ position: 'relative' }}>
+              <button
+                onClick={() => setUserMenuOpen(o => !o)}
+                className="user-chip"
+                style={{ cursor: 'pointer' }}
+                aria-label="Menú de usuario"
+              >
+                {user?.avatarUrl ? (
+                  <img src={user.avatarUrl} alt="avatar" className="user-avatar" />
+                ) : (
+                  <div className="user-avatar-fallback">
+                    {user?.name ? user.name.split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase() : 'U'}
+                  </div>
+                )}
+                <div className="user-chip-text">
+                  <div className="user-chip-name">{user?.name?.split(' ')[0] || 'Estudiante'}</div>
+                  <div className="user-chip-role">
+                    {!isInstitucional && (
+                      <span
+                        title="Has entrado con una cuenta personal de Google"
+                        style={{ color: '#f59e0b', fontWeight: 700, marginRight: 4 }}
+                      >
+                        Personal ·
+                      </span>
+                    )}
+                    {isProfesor
+                      ? <span style={{ color: 'var(--oro-claro)', fontWeight: 700 }}>Profesor</span>
+                      : <span>Estudiante</span>
+                    }
+                  </div>
+                </div>
+                <ChevronDown size={13} color="rgba(255,255,255,0.7)" style={{ transition: 'transform 200ms', transform: userMenuOpen ? 'rotate(180deg)' : 'none' }} />
+              </button>
+
+              {userMenuOpen && (
+                <div style={{
+                  position: 'absolute',
+                  top: 'calc(100% + 8px)',
+                  right: 0,
+                  background: 'var(--surface)',
+                  border: '1px solid var(--border-color)',
+                  borderRadius: 'var(--radius-lg)',
+                  boxShadow: 'var(--shadow-lg)',
+                  minWidth: 230,
+                  overflow: 'hidden',
+                  zIndex: 200,
+                  color: 'var(--text-main)'
+                }}>
+                  <div style={{ padding: '12px 16px', borderBottom: '1px solid var(--border-color)', background: 'var(--surface-alt)' }}>
+                    <div style={{ fontWeight: 700, fontSize: '0.85rem', color: 'var(--text-title)' }}>{user?.name}</div>
+                    <div style={{ fontSize: '0.74rem', color: 'var(--text-muted)', marginTop: 2, wordBreak: 'break-all' }}>{user?.email}</div>
+                    <div style={{ marginTop: 6, display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: '0.7rem', padding: '2px 8px', borderRadius: 999, background: isInstitucional ? 'rgba(45,212,191,0.12)' : 'rgba(245,158,11,0.12)', color: isInstitucional ? 'var(--teal-ink)' : '#f59e0b', fontWeight: 700 }}>
+                      {isInstitucional ? '✓ Cuenta UGR (@go.ugr.es)' : '⚠ Cuenta personal (no UGR)'}
+                    </div>
+                  </div>
+
+                  <div style={{ padding: '6px' }}>
+                    <button
+                      onClick={() => { setUserMenuOpen(false); logout(); }}
+                      style={{
+                        width: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 8,
+                        padding: '8px 12px',
+                        borderRadius: 'var(--radius-sm)',
+                        background: 'transparent',
+                        border: 'none',
+                        color: 'var(--accent-red, #ef4444)',
+                        fontSize: '0.82rem',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                        textAlign: 'left'
+                      }}
+                      onMouseEnter={e => (e.currentTarget.style.background = 'rgba(239, 68, 68, 0.08)')}
+                      onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
+                    >
+                      <LogOut size={15} />
+                      Cerrar sesión
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
