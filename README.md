@@ -141,6 +141,26 @@ Lo que se escribe en el cuaderno vive en el `localStorage` del propio
 dispositivo. Solo sale de ahí cuando el estudiante pulsa «entregar»: entonces
 viaja al Apps Script del profesor. No hay analítica ni terceros.
 
+### Los registros van a la misma hoja de cálculo que la plataforma
+
+No hay una hoja aparte para esta aplicación: se usa el mismo Apps Script
+(`VITE_PRACTICAS_WEBAPP_URL`) y el mismo libro
+(`1RrMzWJPFOKKH76vJh70pQw9vbiQZNOGOJH7vNaTGkso`, en
+`src/services/entregaPracticas.ts`), con las mismas pestañas y las mismas
+columnas. Da igual que un estudiante firme desde la web principal y entregue
+desde la app: todo cae en la misma fila de siempre.
+
+| Apartado | Pestaña de la hoja |
+| --- | --- |
+| 0 · Seguridad | `normas de seguridad` |
+| 5 · Material | `Material` |
+| 7 · Cuaderno por parejas | `Cuaderno de parejas` |
+
+«Mi progreso» consulta esas mismas pestañas buscando el correo de quien ha
+entrado (`accion=misEntregas`), así que refleja también lo entregado desde la
+plataforma. Si algún día se quisiera separar el registro de las prácticas,
+bastaría con cambiar `GSHEET_ID`; mientras coincida, los datos son los mismos.
+
 ---
 
 Universidad de Granada · Facultad de Farmacia · Dpto. de Química Farmacéutica y
