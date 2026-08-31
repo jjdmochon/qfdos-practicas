@@ -68,7 +68,7 @@ gradients:
   progreso: "linear-gradient(90deg, #C08A2E, #5B2B8A)"
 
 typography:
-  fontDisplay: "'Cormorant Garamond', Georgia, serif"
+  fontDisplay: "Montserrat, 'Helvetica Neue', Arial, sans-serif"
   fontPrimary: "Montserrat, -apple-system, 'Segoe UI', sans-serif"
   fontTechnical: "'Roboto Mono', 'Fira Code', Consolas, monospace"
 
@@ -131,9 +131,12 @@ devocional. La identidad es universitaria y profesional.
 
 ## 3. Tipografía
 
-* **Cormorant Garamond** — rótulos y titulares. Aporta el aire de institución
-  antigua sin recurrir a la caligrafía.
-* **Montserrat** — toda la interfaz: pestañas, botones, cuerpo de texto.
+* **Montserrat** — todo: rótulos, titulares e interfaz. Es la misma familia que
+  la plataforma del curso, y esa continuidad es deliberada: al pasar del
+  temario a las prácticas no cambia la voz, solo el color. Los titulares se
+  distinguen por peso (800–900) y tracking negativo (−0.015 a −0.025 em), no
+  por familia. Nada de serif: el rótulo antiguo alejaba las prácticas del resto
+  de la asignatura.
 * **Roboto Mono** — masas, moles, rendimientos, desplazamientos químicos.
   Cualquier cifra que se compare en columna va en monoespaciada y con
   `font-variant-numeric: tabular-nums`.

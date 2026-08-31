@@ -56,8 +56,10 @@ El color es el de la casa, no el de la asignatura:
   correcto, azulejo para lo neutro.
 - **Celosía sebka** de la Alhambra en cabecera y portada, **copa de Higía** de
   filigrana y **perfil de Sierra Nevada** cerrando la portada.
-- Rótulos en **Cormorant Garamond**, interfaz en **Montserrat**, datos en
-  **Roboto Mono**.
+- **Montserrat** en rótulos e interfaz —la misma familia que la plataforma del
+  curso, para que no cambie la voz al pasar del temario a las prácticas— y
+  **Roboto Mono** en los datos. Los titulares se distinguen por peso, no por
+  familia.
 - El icono es la granada del escudo, en oro sobre el morado de la facultad.
 
 Los componentes heredados no se modificaron para cambiar de piel: `granada.css`
