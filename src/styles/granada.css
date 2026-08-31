@@ -171,6 +171,37 @@
   background-size: 60px 104px;
 }
 
+/* Distintivos: el sistema heredado escribió sus bordes y su verde a mano */
+.badge-navy { border-color: rgba(91, 43, 138, 0.24); }
+.badge-teal { border-color: rgba(140, 29, 46, 0.24); }
+.badge-mint { color: var(--tertiary-dark); border-color: rgba(192, 138, 46, 0.34); }
+[data-theme='dark'] .badge-mint { color: var(--oro-claro); }
+
+/* ==========================================================================
+   Pantalla de acceso
+   Reutiliza las clases .login-* del sistema heredado, que traían el azul
+   marino y el verde azulado de QFDOS escritos a mano; aquí se repintan con
+   el morado de la Facultad y el granate de la Universidad.
+   ========================================================================== */
+.login-root {
+  background: linear-gradient(140deg, #3B1A5E 0%, #5B2B8A 40%, #6A1322 100%);
+}
+
+.login-bg-grid {
+  background-image:
+    linear-gradient(rgba(228, 188, 107, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(228, 188, 107, 0.07) 1px, transparent 1px);
+}
+
+.login-logo-ring {
+  background: linear-gradient(135deg, var(--morado) 0%, var(--granate) 100%);
+  box-shadow: 0 8px 24px rgba(59, 26, 94, 0.35);
+}
+
+.login-title { color: var(--text-title); }
+[data-theme='dark'] .login-card { background: rgba(29, 21, 38, 0.94); border-color: rgba(192, 138, 46, 0.22); }
+[data-theme='dark'] .login-title { color: #e6d3f5; }
+
 /* ==========================================================================
    Cabecera
    ========================================================================== */

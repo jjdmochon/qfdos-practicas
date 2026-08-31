@@ -26,6 +26,9 @@ no necesita el resto del curso para nada.
 Además: «Mi progreso» (qué has entregado y qué te falta) y exportación de tu
 semana de laboratorio al calendario del móvil en formato `.ics`.
 
+Se entra con la cuenta de la UGR: la pantalla de acceso es lo primero que
+aparece, como en la plataforma del curso.
+
 ## Móvil: iOS y Android
 
 - **Instalable.** Manifiesto propio, iconos PNG (incluido `apple-touch-icon`,
@@ -98,11 +101,11 @@ Fuera de Drive basta con lo de siempre: `npm install` y `npm run dev`.
 
 Copia `.env.example` a `.env.local`:
 
-- `VITE_GOOGLE_CLIENT_ID` — acceso con cuenta de la UGR. Es el mismo Client ID
-  que usa la plataforma QFDOS: las reglas de acceso son idénticas (cuentas
+- `VITE_GOOGLE_CLIENT_ID` — **imprescindible**: la aplicación abre por la
+  pantalla de acceso, igual que la plataforma, así que sin Client ID no se
+  entra. Es el mismo que usa QFDOS y las reglas son idénticas (cuentas
   `@correo.ugr.es`, `@go.ugr.es` y `@ugr.es`; Gmail admitido pero marcado como
-  externo; el papel de profesor exige cuenta institucional). Sin él, la
-  aplicación funciona igual pero no se puede entregar ni ver el progreso.
+  externo; el papel de profesor exige cuenta institucional).
 
   **Esta app corre en otro origen que la principal**, así que en Google Cloud
   Console → *Credentials* → el Client ID → *Authorized JavaScript origins*

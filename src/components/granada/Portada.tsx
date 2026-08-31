@@ -33,11 +33,11 @@ export const Portada: React.FC<{ firmado: boolean; onIr: (s: Seccion) => void }>
             <FlaskConical size={13} /> Cuaderno de laboratorio
           </span>
           <span style={{ fontSize: '0.72rem', color: 'rgba(255,247,242,0.85)', fontWeight: 600 }}>
-            Química Farmacéutica II · Grupo E · Curso 2026/2027
+            Grupo E · Curso 2026/2027
           </span>
         </div>
 
-        <h1>Último curso, última síntesis</h1>
+        <h1>Prácticas de Química Farmacéutica II</h1>
 
         <p>
           Todo lo que necesitas para las prácticas, en el bolsillo y también sin cobertura:

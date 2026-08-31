@@ -68,7 +68,6 @@ const App: React.FC = () => {
   const [firmado, setFirmado] = useState<boolean>(() => !!localStorage.getItem(CLAVE_SEGURIDAD));
   const [seccion, setSeccion] = useState<Seccion>(() => seccionInicial(!!localStorage.getItem(CLAVE_SEGURIDAD)));
   const [menuAbierto, setMenuAbierto] = useState(false);
-  const [accesoAbierto, setAccesoAbierto] = useState(false);
   const [avisoBloqueo, setAvisoBloqueo] = useState(false);
 
   // Al cambiar de apartado se vuelve arriba: en el móvil, si no, se aterriza a
@@ -96,6 +95,11 @@ const App: React.FC = () => {
 
   const bloqueada = (id: Seccion) => id !== 'safety' && !firmado;
 
+  // La puerta, igual que en la plataforma del curso: el cuaderno guarda firmas
+  // de seguridad y entregas que van a nombre de alguien, así que identificarse
+  // es lo primero y no un trámite del final.
+  if (!isAuthenticated) return <Acceso />;
+
   return (
     <div className="gr-app">
       <header className="gr-cabecera gr-sebka">
@@ -118,24 +122,14 @@ const App: React.FC = () => {
               {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
 
-            {isAuthenticated ? (
-              <button
-                className="gr-boton-icono"
-                onClick={logout}
-                aria-label={`Salir de la cuenta de ${user?.name ?? ''}`}
-                title={`${user?.name ?? ''} · Salir`}
-              >
-                <LogOut size={18} />
-              </button>
-            ) : (
-              <button
-                className="gr-boton-icono"
-                onClick={() => setAccesoAbierto(true)}
-                style={{ width: 'auto', padding: '0 0.8rem', fontWeight: 700, fontSize: '0.8rem', gap: 6 }}
-              >
-                Entrar
-              </button>
-            )}
+            <button
+              className="gr-boton-icono"
+              onClick={logout}
+              aria-label={`Salir de la cuenta de ${user?.name ?? ''}`}
+              title={`${user?.name ?? ''} · Salir`}
+            >
+              <LogOut size={18} />
+            </button>
           </div>
         </div>
 
@@ -312,7 +306,6 @@ const App: React.FC = () => {
         </div>
       )}
 
-      {accesoAbierto && <Acceso onCerrar={() => setAccesoAbierto(false)} />}
     </div>
   );
 };

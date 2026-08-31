@@ -1,99 +1,123 @@
 import React, { useState } from 'react';
 import { GoogleLogin } from '@react-oauth/google';
-import { AlertCircle, X } from 'lucide-react';
+import { AlertCircle, FlaskConical, GraduationCap, Layers, Atom } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { recurso } from '../../services/rutas';
 
 /**
- * Hoja de acceso.
+ * Pantalla de acceso.
  *
- * El cuaderno se puede consultar y calcular sin identificarse: la cuenta solo
- * hace falta para entregar al profesor y para que «Mi progreso» sepa de quién
- * son las entregas. Por eso es una hoja que se abre a demanda y no un muro
- * delante de la aplicación.
+ * Es lo primero que se ve, igual que en la plataforma del curso: el cuaderno
+ * registra firmas de seguridad y entregas que van a nombre de alguien, así que
+ * identificarse no es un extra que se pide al final, sino la puerta.
+ *
+ * Reutiliza las clases .login-* del sistema heredado; el color lo pone
+ * granada.css, que las reescribe con el morado de la Facultad.
  */
-export const Acceso: React.FC<{ onCerrar: () => void }> = ({ onCerrar }) => {
+export const Acceso: React.FC = () => {
   const { loginWithGoogle } = useAuth();
   const [error, setError] = useState<string | null>(null);
+  const [cargando, setCargando] = useState(false);
 
   const alEntrar = (respuesta: { credential?: string }) => {
+    setCargando(true);
+    setError(null);
     const resultado = loginWithGoogle(respuesta);
     if (!resultado.success) {
       setError(resultado.error || 'No se pudo iniciar sesión.');
-      return;
     }
-    onCerrar();
+    setCargando(false);
   };
 
   return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-label="Acceso con cuenta de la UGR"
-      onClick={onCerrar}
-      style={{
-        position: 'fixed', inset: 0, zIndex: 70,
-        background: 'rgba(18, 12, 24, 0.62)', backdropFilter: 'blur(4px)',
-        display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem'
-      }}
-    >
-      <div
-        onClick={e => e.stopPropagation()}
-        className="gr-sebka"
-        style={{
-          position: 'relative', overflow: 'hidden',
-          width: '100%', maxWidth: 420,
-          background: 'var(--surface)', color: 'var(--text-main)',
-          border: '1px solid var(--border-strong)', borderTop: '4px solid var(--oro)',
-          borderRadius: 'var(--radius-xl)', padding: '1.4rem', boxShadow: 'var(--shadow-lg)'
-        }}
-      >
-        <button
-          onClick={onCerrar}
-          aria-label="Cerrar"
-          className="btn btn-sm btn-ghost"
-          style={{ position: 'absolute', top: 10, right: 10, zIndex: 3 }}
-        >
-          <X size={16} />
-        </button>
+    <div className="login-root gr-sebka">
+      <div className="login-bg-grid" aria-hidden="true" />
 
-        <div style={{ position: 'relative', zIndex: 2 }}>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', color: 'var(--text-title)', margin: '0 0 0.35rem' }}>
-            Entrar con tu cuenta
-          </h2>
-          <p style={{ fontSize: '0.84rem', color: 'var(--text-muted)', margin: '0 0 1rem', lineHeight: 1.55 }}>
-            Usa tu correo de la Universidad de Granada (@correo.ugr.es, @go.ugr.es o
-            @ugr.es). Se admite Gmail para quien aún no tenga la cuenta institucional
-            operativa, pero la entrega quedará marcada como externa.
+      <div className="login-deco" aria-hidden="true">
+        <FlaskConical size={120} strokeWidth={0.5} color="rgba(228,188,107,0.10)" style={{ position: 'absolute', top: '8%', left: '6%' }} />
+        <Atom size={90} strokeWidth={0.5} color="rgba(255,255,255,0.06)" style={{ position: 'absolute', bottom: '12%', right: '8%' }} />
+        <Layers size={90} strokeWidth={0.5} color="rgba(228,188,107,0.07)" style={{ position: 'absolute', top: '55%', left: '3%' }} />
+      </div>
+
+      <div className="login-card">
+        <div className="login-card-header">
+          <div className="login-logo-ring">
+            <img
+              src={recurso('iconos/granada.svg')}
+              alt=""
+              aria-hidden="true"
+              style={{ width: 52, height: 52, borderRadius: 12 }}
+            />
+          </div>
+
+          <div className="login-badge-row">
+            <span className="qfdos-badge badge-teal" style={{ fontSize: '0.68rem' }}>2627 QFDOS E</span>
+            <span className="qfdos-badge badge-mint" style={{ fontSize: '0.68rem' }}>Curso 2026/2027</span>
+          </div>
+
+          <h1 className="login-title">Prácticas de Química Farmacéutica II</h1>
+          <p className="login-subtitle">
+            Cuaderno de laboratorio · Facultad de Farmacia, UGR
           </p>
+        </div>
 
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div className="login-divider">
+          <span>Acceso con cuenta institucional</span>
+        </div>
+
+        <div className="login-google-wrap">
+          {cargando ? (
+            <div className="login-loading">
+              <span className="login-spinner" />
+              <span>Verificando credenciales UGR…</span>
+            </div>
+          ) : (
             <GoogleLogin
               onSuccess={alEntrar}
               onError={() => setError('No se pudo completar el acceso con Google. Inténtalo de nuevo.')}
               theme="outline"
-              shape="pill"
+              shape="rectangular"
               size="large"
               text="signin_with"
               locale="es"
-              width="300"
+              useOneTap={false}
+              width="320"
             />
-          </div>
-
-          {error && (
-            <p style={{
-              display: 'flex', gap: 8, alignItems: 'flex-start', marginTop: '0.9rem',
-              padding: '0.7rem 0.85rem', borderRadius: 10, fontSize: '0.8rem',
-              background: 'var(--semantic-bad-bg)', color: 'var(--accent-red)'
-            }}>
-              <AlertCircle size={16} style={{ flexShrink: 0 }} /> {error}
-            </p>
           )}
 
-          <p style={{ marginTop: '1rem', fontSize: '0.72rem', color: 'var(--text-light)', lineHeight: 1.6 }}>
-            Sin identificarte puedes leer los protocolos y usar todas las calculadoras;
-            la cuenta solo se necesita para entregar y para seguir tu progreso.
-          </p>
+          {error && (
+            <div className="login-error">
+              <AlertCircle size={16} strokeWidth={2} />
+              <span>{error}</span>
+            </div>
+          )}
         </div>
+
+        <div className="login-info-grid">
+          <div className="login-info-box">
+            <GraduationCap size={18} color="var(--teal-ink)" />
+            <div>
+              <strong>Estudiantes</strong>
+              <p>
+                Entra con tu cuenta de la UGR (<code>@correo.ugr.es</code> o{' '}
+                <code>@go.ugr.es</code>). Si todavía no la tienes activa, también
+                sirve una cuenta de <code>Gmail</code>, aunque la entrega quedará
+                marcada como externa.
+              </p>
+            </div>
+          </div>
+          <div className="login-info-box login-info-box--professor">
+            <Layers size={18} color="var(--navy-ink)" />
+            <div>
+              <strong>Profesorado</strong>
+              <p>La recepción de cuadernos requiere <code>juandiaz@ugr.es</code></p>
+            </div>
+          </div>
+        </div>
+
+        <p className="login-footer-note">
+          Universidad de Granada · Departamento de Química Farmacéutica y Orgánica
+        </p>
       </div>
     </div>
   );
