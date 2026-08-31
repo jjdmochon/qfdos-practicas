@@ -96,8 +96,24 @@ Fuera de Drive basta con lo de siempre: `npm install` y `npm run dev`.
 
 Copia `.env.example` a `.env.local`:
 
-- `VITE_GOOGLE_CLIENT_ID` — acceso con cuenta de la UGR. Sin él la aplicación
-  funciona igual, pero no se puede entregar ni ver el progreso.
+- `VITE_GOOGLE_CLIENT_ID` — acceso con cuenta de la UGR. Es el mismo Client ID
+  que usa la plataforma QFDOS: las reglas de acceso son idénticas (cuentas
+  `@correo.ugr.es`, `@go.ugr.es` y `@ugr.es`; Gmail admitido pero marcado como
+  externo; el papel de profesor exige cuenta institucional). Sin él, la
+  aplicación funciona igual pero no se puede entregar ni ver el progreso.
+
+  **Esta app corre en otro origen que la principal**, así que en Google Cloud
+  Console → *Credentials* → el Client ID → *Authorized JavaScript origins*
+  tienen que estar dados de alta:
+
+  ```
+  http://localhost:3002
+  https://jjdmochon.github.io
+  ```
+
+  Si falta el origen, Google responde `origin_mismatch` o `invalid_request` al
+  pulsar «Entrar», aunque el Client ID sea correcto.
+
 - `VITE_PRACTICAS_WEBAPP_URL` — URL `/exec` del Apps Script que recibe las
   entregas en una hoja de cálculo. Sin ella se ofrece el envío por correo.
 
