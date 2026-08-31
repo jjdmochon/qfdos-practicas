@@ -33,7 +33,7 @@ export const Portada: React.FC<{ firmado: boolean; onIr: (s: Seccion) => void }>
             <FlaskConical size={13} /> Cuaderno de laboratorio
           </span>
           <span style={{ fontSize: '0.72rem', color: 'rgba(255,247,242,0.85)', fontWeight: 600 }}>
-            Grupo E · Curso 2026/2027
+            Curso 2026/2027
           </span>
         </div>
 

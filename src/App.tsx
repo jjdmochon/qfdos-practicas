@@ -105,7 +105,12 @@ const App: React.FC = () => {
       <header className="gr-cabecera gr-sebka">
         <div className="gr-cabecera-fila">
           <div className="gr-marca">
-            <img src={recurso('iconos/granada.svg')} alt="" aria-hidden="true" />
+            <img
+              src="https://i.ibb.co/HLCYDc3c/Logo-primario-QFDOS.png"
+              alt="QFDOS"
+              aria-hidden="true"
+              style={{ width: 34, height: 34, borderRadius: 8, objectFit: 'contain' }}
+            />
             <div style={{ minWidth: 0 }}>
               <p className="gr-titulo">Prácticas de Química Farmacéutica II</p>
               <p className="gr-subtitulo">Facultad de Farmacia · UGR</p>
@@ -221,7 +226,7 @@ const App: React.FC = () => {
           Universidad de Granada · Facultad de Farmacia
         </p>
         <p>
-          Química Farmacéutica II · Grupo E · Prácticas de laboratorio.
+          Química Farmacéutica II · Prácticas de laboratorio.
           Los datos que introduces se guardan en tu propio dispositivo; solo se envían
           al profesor cuando pulsas «entregar».
         </p>

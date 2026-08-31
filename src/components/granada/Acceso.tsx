@@ -43,15 +43,15 @@ export const Acceso: React.FC = () => {
         <div className="login-card-header">
           <div className="login-logo-ring">
             <img
-              src={recurso('iconos/granada.svg')}
-              alt=""
+              src="https://i.ibb.co/HLCYDc3c/Logo-primario-QFDOS.png"
+              alt="QFDOS"
               aria-hidden="true"
-              style={{ width: 52, height: 52, borderRadius: 12 }}
+              style={{ width: 52, height: 52, borderRadius: 12, objectFit: 'contain' }}
             />
           </div>
 
           <div className="login-badge-row">
-            <span className="qfdos-badge badge-teal" style={{ fontSize: '0.68rem' }}>2627 QFDOS E</span>
+            <span className="qfdos-badge badge-teal" style={{ fontSize: '0.68rem' }}>QFDOS</span>
             <span className="qfdos-badge badge-mint" style={{ fontSize: '0.68rem' }}>Curso 2026/2027</span>
           </div>
 
@@ -110,7 +110,7 @@ export const Acceso: React.FC = () => {
             <Layers size={18} color="var(--navy-ink)" />
             <div>
               <strong>Profesorado</strong>
-              <p>La recepción de cuadernos requiere <code>juandiaz@ugr.es</code></p>
+              <p>La recepción de cuadernos requiere <code>juandiaz@go.ugr.es</code></p>
             </div>
           </div>
         </div>

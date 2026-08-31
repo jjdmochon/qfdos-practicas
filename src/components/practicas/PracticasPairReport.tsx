@@ -73,8 +73,8 @@ export const PracticasPairReport: React.FC = () => {
   // Current active report being edited by the student pair
   const [currentReport, setCurrentReport] = useState<LabPairReport>({
     id: `REP-${Date.now().toString().slice(-6)}`,
-    grupo: 'Grupo E',
-    puesto: 4,
+    grupo: 'Grupo A',
+    puesto: 1,
     turno: 'Mañana',
     fecha: new Date().toISOString().split('T')[0],
     student1: {

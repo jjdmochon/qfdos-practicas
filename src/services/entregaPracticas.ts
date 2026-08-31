@@ -10,7 +10,7 @@
 // y en ambos casos se ofrece una vía alternativa que sí llega al profesor.
 // ==========================================================================
 
-export const PROFESOR_EMAIL = 'juandiaz@ugr.es';
+export const PROFESOR_EMAIL = 'juandiaz@go.ugr.es';
 
 const GSHEET_ID = '1RrMzWJPFOKKH76vJh70pQw9vbiQZNOGOJH7vNaTGkso';
 
